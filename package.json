@@ -1,0 +1,33 @@
+{
+  "type": "module",
+  "name": "kanbas-node-server-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spoony912/kanbas-node-server-app.git"
+  },
+  "keywords": [
+    "Node",
+    "REST.",
+    "Server",
+    "HTTP",
+    "CS5610"
+  ],
+  "author": "Jiaoyang Du",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spoony912/kanbas-node-server-app/issues"
+  },
+  "homepage": "https://github.com/spoony912/kanbas-node-server-app#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "express": "^4.19.1"
+  }
+}
