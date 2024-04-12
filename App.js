@@ -15,9 +15,6 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0
 const DB_NAME = process.env.DB_NAME || 'Kanbas';
 mongoose.connect( CONNECTION_STRING, {dbName: DB_NAME});
 
-const branches = ["main", "a6"];
-const strippedNetlifyUrl = process.env.NETLIFY_URL.replace("https://", "")
-const allowedOrigins = [process.env.FRONTEND_URL, ...branches.map((branch) => `https://${branch}--${strippedNetlifyUrl}`)];
 
 const app = express();
 
@@ -32,20 +29,12 @@ const app = express();
 
 app.use(cors({
     credentials: true,
-    // origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-      }
-    }
+    origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
     
   }));
 
 const sessionOptions = {
-  // secret:process.env.SESSION_SECRE,
+
   secret:'jydu',
   resave:false,
   saveUninitialized:false,
