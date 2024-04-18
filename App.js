@@ -6,6 +6,7 @@ import session from "express-session";
 import CourseRoutes from './Kanbas/Courses/routes.js';
 import ModuleRoutes from './Kanbas/Modules/routes.js';
 import AssignmentRoutes from './Kanbas/Assignments/routes.js';
+import QuizRoutes from "./Kanbas/Quizzes/routes.js";
 import mongoose from "mongoose";
 
 import UserRoutes from './Users/routes.js';
@@ -27,12 +28,6 @@ const app = express();
 //   }
 // }));
 
-app.use(cors({
-    credentials: true,
-    origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
-    
-  }));
-
 const sessionOptions = {
 
   secret:'jydu',
@@ -51,10 +46,16 @@ if (process.env.NODE_ENV !=="development") {
 }
 app.use(session(sessionOptions));
 app.use(express.json());
+app.use(cors({
+  credentials: true,
+  origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
+  
+}));
 UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
+QuizRoutes(app);
 Hello(app);
 Lab5(app);
 
