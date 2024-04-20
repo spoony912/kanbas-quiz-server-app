@@ -1,8 +1,7 @@
 import db from "../Database/index.js"
-
 function QuizRoutes(app) {
 
-  // retrieve: get
+  // retrieve: get quiz list
   app.get("/api/courses/:cid/quizzes", (req, res) => {
     const { cid } = req.params;
     const quizzes = db.quizzes.filter((q) => q.course === cid);
@@ -39,6 +38,16 @@ function QuizRoutes(app) {
     };
     res.sendStatus(204);
   });
+
+  // get specific quiz by id
+  app.get("/api/courses/:cid/quizzes/:qid", (req, res) => {
+    const { qid } = req.params;
+    const quiz = db.quizzes.find(q => q._id === qid);
+    if (!quiz) {
+        return res.status(404).json({ error: 'Quiz not found' });
+    }
+    res.send(quiz);
+});
 }
  
 export default QuizRoutes;
