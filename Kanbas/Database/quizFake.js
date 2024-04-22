@@ -17,7 +17,8 @@ export default[
     lockQuestionsAfterAnswering: false,
     dueDate: "2024-09-21",
     availableDate: "2024-09-11",
-    untilDate: "2024-09-21"
+    untilDate: "2024-09-21",
+    pushlised: false
   },
 
   { 
@@ -38,6 +39,7 @@ export default[
     lockQuestionsAfterAnswering: false,
     dueDate: "2024-09-21",
     availableDate: "2024-09-11",
-    untilDate: "2024-09-21"
+    untilDate: "2024-09-21",
+    pushlised: false
 }
 ]
