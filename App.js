@@ -6,7 +6,6 @@ import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/route.js";
 import AssignmentRoutes from "./Kanbas/assignments/route.js";
 import mongoose from "mongoose";
-// import UserRoutes from "./Kanbas/Users/routes.js";
 import session from "express-session";
 import "dotenv/config";
 import UserRoutes from "./Users/routes.js";
